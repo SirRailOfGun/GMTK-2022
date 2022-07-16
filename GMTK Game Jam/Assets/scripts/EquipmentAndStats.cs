@@ -42,7 +42,85 @@ public class EquipmentAndStats : MonoBehaviour
     }
 
     public int GetCyclingDice() {
-        return 1;
+        int count = 0;
+        foreach (EquipSlot slot in equipment) {
+            count += slot.equippedItem.GetComponent<EquipmentInfo>().GlobalCycling;
+        }
+        if(currentWeapon >= 0 && currentWeapon < equipment.Length) {
+            count += equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().WeaponCycling;
+        }
+        return count;
+    }
+
+    public int GetToHitDice() {
+        int count = 0;
+        foreach (EquipSlot slot in equipment) {
+            count += slot.equippedItem.GetComponent<EquipmentInfo>().GlobalToHit;
+        }
+        if (currentWeapon >= 0 && currentWeapon < equipment.Length) {
+            count += equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().WeaponToHit;
+        }
+        return count;
+    }
+
+    public int GetParryDice() {
+        int count = 0;
+        foreach (EquipSlot slot in equipment) {
+            count += slot.equippedItem.GetComponent<EquipmentInfo>().GlobalParry;
+        }
+        if (currentWeapon >= 0 && currentWeapon < equipment.Length) {
+            count += equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().WeaponParry;
+        }
+        return count;
+    }
+
+    public int GetDamageDice() {
+        int count = 0;
+        foreach (EquipSlot slot in equipment) {
+            count += slot.equippedItem.GetComponent<EquipmentInfo>().GlobalDamage;
+        }
+        if (currentWeapon >= 0 && currentWeapon < equipment.Length) {
+            count += equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().WeaponDamage;
+        }
+        return count;
+    }
+
+    public int GetArmorDice() {
+        int count = 0;
+        foreach (EquipSlot slot in equipment) {
+            count += slot.equippedItem.GetComponent<EquipmentInfo>().GlobalArmor;
+        }
+        if (currentWeapon >= 0 && currentWeapon < equipment.Length) {
+            count += equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().WeaponArmor;
+        }
+        return count;
+    }
+
+    public int GetHitLocDice() {
+        int count = 0;
+        foreach (EquipSlot slot in equipment) {
+            count += slot.equippedItem.GetComponent<EquipmentInfo>().GlobalHitLoc;
+        }
+        if (currentWeapon >= 0 && currentWeapon < equipment.Length) {
+            count += equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().WeaponHitLoc;
+        }
+        return count;
+    }
+
+    public int GetGlobalDRDice() {
+        int count = 0;
+        foreach (EquipSlot slot in equipment) {
+            count += slot.equippedItem.GetComponent<EquipmentInfo>().GlobalDR;
+        }
+        return count;
+    }
+
+    public int GetSlotDRDice(int slot) {
+        int count = GetGlobalDRDice();
+        if (slot >= 0 && slot < equipment.Length) {
+            count += equipment[slot].equippedItem.GetComponent<EquipmentInfo>().ItemDR;
+        }
+        return count;
     }
 
     public void AdvanceWeapon(int count) {
