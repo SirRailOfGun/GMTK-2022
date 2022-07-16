@@ -29,6 +29,7 @@ public class DragController : MonoBehaviour
         }
         GameObject starterItem = Instantiate(defaultItem);
         starterItem.transform.position = new Vector3(-2f, -7.5f, 0f);
+        starterItem.GetComponent<DraggableSprite>().lastPos = starterItem.transform.position;
         TakePos(starterItem.transform.position, new Vector3(-9.5f, -9.5f, 0), starterItem);
     }
 
@@ -63,17 +64,24 @@ public class DragController : MonoBehaviour
             if (Vector3.Distance(position, validLocations[i]) < validOffset)
             {
                 int index = allLocations.IndexOf(validLocations[i]);
-                Debug.Log(index);
-                if (index > 0 && index < 26)
+
+                Debug.Log("new position : " + validLocations[i]);
+                Debug.Log("new position index : " + index);   //debug code
+
+                if (index > 0 && index < 25)
                 {
                     player.equip(item, index - 1);
                 }
-                Debug.Log(index);
-                if (index >= 0 && index < allLocations.Count) 
-                {
-                    Debug.Log(allLocations[index]); 
-                }
-                if (index > 0 && index < 26)
+                index = allLocations.IndexOf(oldPosition);
+
+                Debug.Log("old position : " + oldPosition);
+                Debug.Log("old position index : " + index);   //debug code
+                //if (index >= 0 && index < allLocations.Count)   //debug code
+                //{   //debug code
+                //    Debug.Log(allLocations[index]); //debug code
+                //}   //debug code
+
+                if (index > 0 && index < 25)
                 {
                     player.equip(Instantiate(blankItem), index - 1);
                 }

@@ -13,9 +13,9 @@ public class EquipmentAndStats : MonoBehaviour
     {
         for (int i = 0; i < equipment.Length; i++)
         {
-            if (equipment[i].equippedItem == null)
+            if (!(equipment[i].equippedItem))
             {
-                equipment[i].equippedItem = Instantiate(blankItem);
+                equip(Instantiate(blankItem), i);
                 //int defaultTier = 0;
                 //equipment[i].equippedItem.SendMessage("GenerateEquipment", defaultTier);
             }
@@ -71,9 +71,12 @@ public class EquipmentAndStats : MonoBehaviour
 
     public void equip(GameObject item, int equipSlot)
     {
-        if (equipment[equipSlot].equippedItem.name == "")
+        if (equipment[equipSlot].equippedItem)
         {
-            Destroy(equipment[equipSlot].equippedItem);
+            if (equipment[equipSlot].equippedItem.name == "")
+            {
+                Destroy(equipment[equipSlot].equippedItem);
+            }
         }
         equipment[equipSlot].equippedItem = item;
     }
