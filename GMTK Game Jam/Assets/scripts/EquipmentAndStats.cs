@@ -117,6 +117,7 @@ public class EquipmentAndStats : MonoBehaviour
 
     public int GetSlotDRDice(int slot) {
         int count = GetGlobalDRDice();
+        slot = slot % equipment.Length;
         if (slot >= 0 && slot < equipment.Length) {
             count += equipment[slot].equippedItem.GetComponent<EquipmentInfo>().ItemDR;
         }
@@ -133,6 +134,16 @@ public class EquipmentAndStats : MonoBehaviour
             currentWeapon = (currentWeapon + 1) % equipment.Length;
             if (equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().isWeapon) {
                 count--;
+            }
+        }
+    }
+
+    public void TakeDamage(int damage, int slot) {
+        slot = slot % equipment.Length;
+        if (slot >= 0 && slot < equipment.Length) {
+            equipment[slot].health += damage;
+            if(equipment[slot].health < 0) {
+                Destroy(gameObject);
             }
         }
     }
