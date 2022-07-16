@@ -7,6 +7,7 @@ public class DragController : MonoBehaviour
     public EquipmentAndStats player;
     public GameObject selectedObject;
     public GameObject blankItem;
+    public GameObject defaultItem;
     public List<Vector3> allLocations;
     public List<Vector3> validLocations;
     public float validOffset = 0.25f;
@@ -15,10 +16,21 @@ public class DragController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for(float x = 1f; x < 10.5f; x++)
+        {
+            for(float y = -.5f; y > -10; y--)
+            {
+                allLocations.Add(new Vector3(x, y, 0f));
+            }
+        }
         foreach(var location in allLocations)
         {
             validLocations.Add(location);
         }
+        GameObject starterItem = Instantiate(defaultItem);
+        starterItem.transform.position = new Vector3(-2f, -7.5f, 0f);
+        starterItem.GetComponent<DraggableSprite>().lastPos = starterItem.transform.position;
+        TakePos(starterItem.transform.position, new Vector3(-9.5f, -9.5f, 0), starterItem);
     }
 
     void Update()
@@ -52,18 +64,24 @@ public class DragController : MonoBehaviour
             if (Vector3.Distance(position, validLocations[i]) < validOffset)
             {
                 int index = allLocations.IndexOf(validLocations[i]);
-                if(index > 0 && index < 26)
+
+                Debug.Log("new position : " + validLocations[i]);
+                Debug.Log("new position index : " + index);   //debug code
+
+                if (index > 0 && index < 25)
                 {
                     player.equip(item, index - 1);
                 }
                 index = allLocations.IndexOf(oldPosition);
-                Debug.Log(oldPosition);
-                Debug.Log(index);
-                if (index >= 0 && index < allLocations.Count) 
-                {
-                    Debug.Log(allLocations[index]); 
-                }
-                if (index > 0 && index < 26)
+
+                Debug.Log("old position : " + oldPosition);
+                Debug.Log("old position index : " + index);   //debug code
+                //if (index >= 0 && index < allLocations.Count)   //debug code
+                //{   //debug code
+                //    Debug.Log(allLocations[index]); //debug code
+                //}   //debug code
+
+                if (index > 0 && index < 25)
                 {
                     player.equip(Instantiate(blankItem), index - 1);
                 }
