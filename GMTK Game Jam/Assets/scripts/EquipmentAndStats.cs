@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EquipmentAndStats : MonoBehaviour
 {
+    public int currentWeapon;
     public EquipSlot[] equipment = new EquipSlot[24];
 
     // Start is called before the first frame update
@@ -39,6 +40,35 @@ public class EquipmentAndStats : MonoBehaviour
             equipment[i].health = DiceRoller.RollDice(GlobalHitDice + equipment[i].BonusHD + equipment[i].equippedItem.GetComponent<EquipmentInfo>().itemHD);
         }
     }
+
+    public int GetCyclingDice() {
+        return 1;
+    }
+
+    public void AdvanceWeapon(int count) {
+        int weapons = GetWeaponCount();
+        if(weapons == 0) {
+            return;
+        }
+        count = count % weapons;
+        while(count > 0) {
+            currentWeapon = (currentWeapon + 1) % equipment.Length;
+            if (equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().isWeapon) {
+                count--;
+            }
+        }
+    }
+    
+    public int GetWeaponCount() {
+        int count = 0;
+        for (int i = 0; i < equipment.Length; i++) {
+            if (equipment[i].equippedItem.GetComponent<EquipmentInfo>().isWeapon) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 
     [System.Serializable]
     public struct EquipSlot
