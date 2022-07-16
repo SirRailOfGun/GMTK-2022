@@ -28,7 +28,7 @@ public class DraggableSprite : MonoBehaviour
 
     void LetGo()
     {
-        lastPos = controller.TakePos(transform.position, lastPos);
+        lastPos = controller.TakePos(transform.position, lastPos, gameObject);
         transform.position = lastPos;
     }
 
@@ -36,7 +36,7 @@ public class DraggableSprite : MonoBehaviour
     {
         if (lastPos == new Vector3(-9.5f,-9.5f,0))
         {
-            Destroy(this);
+            Destroy(gameObject);
             //remove this object
         }
     }

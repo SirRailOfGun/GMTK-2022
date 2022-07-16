@@ -6234,11 +6234,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1177044273 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1850615869747957415, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
-  m_PrefabInstance: {fileID: 45896678}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1251642999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6625,6 +6620,7 @@ MonoBehaviour:
     equippedItem: {fileID: 0}
     health: 0
     BonusHD: 0
+  blankItem: {fileID: 1850615869747957415, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
 --- !u!4 &1315666715
 Transform:
   m_ObjectHideFlags: 0
@@ -7364,7 +7360,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6168b2d8e6fa98f4daabbf6ed481fc7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1817150020}
   selectedObject: {fileID: 0}
+  blankItem: {fileID: 1850615869747957415, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
   allLocations:
   - {x: -9.5, y: -9.5, z: 0}
   - {x: -9.5, y: -1.5, z: 0}
@@ -8233,9 +8231,10 @@ MonoBehaviour:
     health: 0
     BonusHD: 0
   - Name: Ego
-    equippedItem: {fileID: 1177044273}
+    equippedItem: {fileID: 0}
     health: 0
     BonusHD: 0
+  blankItem: {fileID: 1850615869747957415, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
 --- !u!4 &1817150021
 Transform:
   m_ObjectHideFlags: 0

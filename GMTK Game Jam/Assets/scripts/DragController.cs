@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DragController : MonoBehaviour
 {
+    public EquipmentAndStats player;
     public GameObject selectedObject;
+    public GameObject blankItem;
     public List<Vector3> allLocations;
     public List<Vector3> validLocations;
     public float validOffset = 0.25f;
@@ -13,7 +15,10 @@ public class DragController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        validLocations = allLocations;
+        foreach(var location in allLocations)
+        {
+            validLocations.Add(location);
+        }
     }
 
     void Update()
@@ -40,12 +45,28 @@ public class DragController : MonoBehaviour
         }
     }
     
-    public Vector3 TakePos(Vector3 position, Vector3 oldPosition)
+    public Vector3 TakePos(Vector3 position, Vector3 oldPosition, GameObject item)
     {
         for (int i = 0; i < validLocations.Count; i++)
         {
             if (Vector3.Distance(position, validLocations[i]) < validOffset)
             {
+                int index = allLocations.IndexOf(validLocations[i]);
+                if(index > 0 && index < 26)
+                {
+                    player.equip(item, index - 1);
+                }
+                index = allLocations.IndexOf(oldPosition);
+                Debug.Log(oldPosition);
+                Debug.Log(index);
+                if (index >= 0 && index < allLocations.Count) 
+                {
+                    Debug.Log(allLocations[index]); 
+                }
+                if (index > 0 && index < 26)
+                {
+                    player.equip(Instantiate(blankItem), index - 1);
+                }
                 if (oldPosition != new Vector3(-9.5f, -9.5f, 0))
                 {
                     validLocations.Add(oldPosition);
