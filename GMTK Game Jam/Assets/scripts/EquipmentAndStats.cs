@@ -31,6 +31,7 @@ public class EquipmentAndStats : MonoBehaviour
     public struct EquipmentInfo
     {
         public string Name;
+        public int iconID;
         public bool isWeapon;       //is this item supposed to be in the weapon list
 
         //Weapon stats are only applied if the item is the active weapon, ItemDR is applied if it is equipped to the hit location
