@@ -66,10 +66,10 @@ public class CombatManager : MonoBehaviour
     }
 
     public void CombatRound(EquipmentAndStats attacker, EquipmentAndStats defender) {
-        Debug.Log("attacker dice\ncycle " + attacker.GetCyclingDice() + "\nhit loc " + attacker.GetHitLocDice()+"\nto hit "+ attacker.GetToHitDice()+"\ndamage "+ attacker.GetDamageDice());
         // Roll Weapon
         int cyleRoll = DiceRoller.RollDice(attacker.GetCyclingDice());
         attacker.AdvanceWeapon(cyleRoll);
+        Debug.Log("attacker dice\ncycle " + attacker.GetCyclingDice() + "\nhit loc " + attacker.GetHitLocDice() + "\nto hit " + attacker.GetToHitDice() + "\ndamage " + attacker.GetDamageDice());
         // Roll for hit location
         int hitLocation = DiceRoller.RollDice(attacker.GetHitLocDice());
         // Roll for to hit

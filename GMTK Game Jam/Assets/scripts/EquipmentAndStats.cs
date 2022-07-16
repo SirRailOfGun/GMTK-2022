@@ -131,7 +131,7 @@ public class EquipmentAndStats : MonoBehaviour
         }
         count = count % weapons;
         if(!equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().isWeapon) {
-            count += 1;
+            count = Mathf.Min(1,count);
         }
         while(count > 0) {
             currentWeapon = (currentWeapon + 1) % equipment.Length;
