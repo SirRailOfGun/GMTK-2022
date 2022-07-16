@@ -74,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1679587030, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
+  m_Sprite: {fileID: -1269011616, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DiceSprites:
-  - {fileID: 1679587030, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
-  - {fileID: -1358264537, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
-  - {fileID: -1158992415, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
-  - {fileID: -1049057931, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
-  - {fileID: 643065577, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
-  - {fileID: -219561608, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
+  - {fileID: -1269011616, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
+  - {fileID: -413874785, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
+  - {fileID: -549238974, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
+  - {fileID: 133209034, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
+  - {fileID: 2076688846, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
+  - {fileID: 880038469, guid: c978e5b60065aa84aba2f9d22e5f5be2, type: 3}
   diceValue: 0
   renderPos: {x: 0, y: 0}
