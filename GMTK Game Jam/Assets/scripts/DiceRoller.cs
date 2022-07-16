@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DiceRoller : MonoBehaviour
 {
+    public GameObject diePrefab;
     static public int RollDice(int numDice)
     {
         int result = 0;
@@ -16,6 +17,9 @@ public class DiceRoller : MonoBehaviour
         for (int i = 0; i < numDice; i++)
         {
             result += UnityEngine.Random.Range(1, 6);
+            //GameObject currentDie = Instantiate(diePrefab);
+            //currentDie.GetComponent<DiceRender>().diceValue = result;
+            //currentDie.GetComponent<DiceRender>().renderPos = new Vector3(0,3,0);
         }
 
         if (negVal)
