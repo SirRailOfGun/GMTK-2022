@@ -15,8 +15,8 @@ public class EquipmentAndStats : MonoBehaviour
             {
                 equipment[i].equippedItem = new GameObject();
                 equipment[i].equippedItem.AddComponent<EquipmentInfo>();
-                int defaultTier = 0;
-                equipment[i].equippedItem.SendMessage("GenerateEquipment", defaultTier);
+                //int defaultTier = 0;
+                //equipment[i].equippedItem.SendMessage("GenerateEquipment", defaultTier);
             }
         }
     }
