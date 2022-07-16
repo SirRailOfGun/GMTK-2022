@@ -18,6 +18,19 @@ public class EquipmentAndStats : MonoBehaviour
         
     }
 
+    void InstantiateHealth()
+    {
+        int GlobalHitDice = 0;
+        foreach(EquipSlot slot in equipment)
+        {
+            GlobalHitDice += slot.equippedItem.GlobalHD;
+        }
+        for (int i = 0; i < equipment.Length; i++)
+        {
+            equipment[i].health = DiceRoller.RollDice(GlobalHitDice + equipment[i].BonusHD + equipment[i].equippedItem.itemHD);
+        }
+    }
+
     [System.Serializable]
     public struct EquipSlot
     {
@@ -31,7 +44,6 @@ public class EquipmentAndStats : MonoBehaviour
     public struct EquipmentInfo
     {
         public string Name;
-        public int iconID;
         public bool isWeapon;       //is this item supposed to be in the weapon list
 
         //Weapon stats are only applied if the item is the active weapon, ItemDR is applied if it is equipped to the hit location
