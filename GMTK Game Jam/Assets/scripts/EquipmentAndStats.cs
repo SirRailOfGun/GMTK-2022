@@ -6,6 +6,7 @@ public class EquipmentAndStats : MonoBehaviour
 {
     public int currentWeapon;
     public EquipSlot[] equipment = new EquipSlot[24];
+    public GameObject blankItem;
 
     // Start is called before the first frame update
     void Start()
@@ -14,8 +15,7 @@ public class EquipmentAndStats : MonoBehaviour
         {
             if (equipment[i].equippedItem == null)
             {
-                equipment[i].equippedItem = new GameObject();
-                equipment[i].equippedItem.AddComponent<EquipmentInfo>();
+                equipment[i].equippedItem = Instantiate(blankItem);
                 //int defaultTier = 0;
                 //equipment[i].equippedItem.SendMessage("GenerateEquipment", defaultTier);
             }
@@ -69,6 +69,14 @@ public class EquipmentAndStats : MonoBehaviour
         return count;
     }
 
+    public void equip(GameObject item, int equipSlot)
+    {
+        if (equipment[equipSlot].equippedItem.name == "")
+        {
+            Destroy(equipment[equipSlot].equippedItem);
+        }
+        equipment[equipSlot].equippedItem = item;
+    }
 
     [System.Serializable]
     public struct EquipSlot
