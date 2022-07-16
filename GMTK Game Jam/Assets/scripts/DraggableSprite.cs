@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class DraggableSprite : MonoBehaviour
 {
-    public List<Vector3> validLocations;
+    //public List<Vector3> validLocations;
+    public DragController controller;
     public Vector3 lastPos;
-    public float validOffset = 0.25f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject go = GameObject.Find("BG");
+        controller = (DragController)go.GetComponent(typeof(DragController));
     }
 
     // Update is called once per frame
@@ -27,13 +28,16 @@ public class DraggableSprite : MonoBehaviour
 
     void LetGo()
     {
-        foreach(Vector3 validLoc in validLocations)
-        {
-            if (Vector3.Distance(transform.position, validLoc) < validOffset)
-            {
-                lastPos = validLoc;
-            }
-        }
+        lastPos = controller.TakePos(transform.position, lastPos);
         transform.position = lastPos;
+    }
+
+    void CleanUpTrash()
+    {
+        if (lastPos == new Vector3(-9.5f,-9.5f,0))
+        {
+            Destroy(this);
+            //remove this object
+        }
     }
 }
