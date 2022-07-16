@@ -64,6 +64,7 @@
     <Compile Include="Assets\scripts\EquipmentGenerator.cs" />
     <Compile Include="Assets\scripts\DragController.cs" />
     <Compile Include="Assets\scripts\DraggableSprite.cs" />
+    <Compile Include="Assets\scripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
