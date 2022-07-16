@@ -25,7 +25,9 @@ public class DiceRoller : MonoBehaviour
             //currentDie.GetComponent<DiceRender>().renderPos = new Vector3(0,3,0);
         }
 
-        // Debug.Log("Result is " + result); //Debug code
+        //Uncomment this at your own risk!
+        //Debug.Log("Rolling " + numDice + " Dice"); //Debug code
+        //Debug.Log("Result is " + result); //Debug code
 
         if (negVal)
         {
