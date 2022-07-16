@@ -130,6 +130,9 @@ public class EquipmentAndStats : MonoBehaviour
             return;
         }
         count = count % weapons;
+        if(!equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().isWeapon) {
+            count += 1;
+        }
         while(count > 0) {
             currentWeapon = (currentWeapon + 1) % equipment.Length;
             if (equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().isWeapon) {
@@ -141,7 +144,7 @@ public class EquipmentAndStats : MonoBehaviour
     public void TakeDamage(int damage, int slot) {
         slot = slot % equipment.Length;
         if (slot >= 0 && slot < equipment.Length) {
-            equipment[slot].health += damage;
+            equipment[slot].health -= damage;
             if(equipment[slot].health < 0) {
                 Destroy(gameObject);
             }
