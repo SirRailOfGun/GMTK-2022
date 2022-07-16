@@ -59,8 +59,9 @@
     <Compile Include="Assets\scripts\CreatureStats.cs" />
     <Compile Include="Assets\scripts\DiceRender.cs" />
     <Compile Include="Assets\scripts\EquipmentInfo.cs" />
-    <Compile Include="Assets\scripts\EquipmentAndStats.cs" />
     <Compile Include="Assets\scripts\DiceRoller.cs" />
+    <Compile Include="Assets\scripts\EquipmentGenerator.cs" />
+    <Compile Include="Assets\scripts\EquipmentAndStats.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
