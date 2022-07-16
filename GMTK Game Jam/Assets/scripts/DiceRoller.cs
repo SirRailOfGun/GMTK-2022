@@ -7,8 +7,6 @@ public class DiceRoller : MonoBehaviour
     public GameObject diePrefab;
     static public int RollDice(int numDice)
     {
-        //Uncomment this at your own risk!
-        Debug.Log("Rolling " + numDice + " Dice"); //Debug code
 
         int result = 0;
         bool negVal = false;
@@ -25,7 +23,9 @@ public class DiceRoller : MonoBehaviour
             //currentDie.GetComponent<DiceRender>().renderPos = new Vector3(0,3,0);
         }
 
-        Debug.Log("Result is " + result); //Debug code
+        //Uncomment this at your own risk!
+        //Debug.Log("Rolling " + numDice + " Dice"); //Debug code
+        //Debug.Log("Result is " + result); //Debug code
 
         if (negVal)
         {
