@@ -43,9 +43,12 @@ public class CombatManager : MonoBehaviour
                 if (turnTimer < 0) {
                     turnTimer = 5;
                     if (playerTurn) {
+                        Debug.Log("player attacks");
                         CombatRound(player.GetComponent<EquipmentAndStats>(), enemy.GetComponent<EquipmentAndStats>());
                     }
-                    else {
+                    else
+                    {
+                        Debug.Log("enemy attacks");
                         CombatRound(enemy.GetComponent<EquipmentAndStats>(), player.GetComponent<EquipmentAndStats>());
                     }
                     playerTurn = !playerTurn;
@@ -76,6 +79,7 @@ public class CombatManager : MonoBehaviour
         int damage = DiceRoller.RollDice(attacker.GetDamageDice());
         // Roll for Damage
         int dr = DiceRoller.RollDice(defender.GetSlotDRDice(hitLocation));
+        Debug.Log("cycle by " + cyleRoll + "\nhit location " + hitLocation + "\nto hit roll " + toHit + "\nparry roll " + parry+ "\ndamage roll " + damage+ "\ndamage reduction " + dr);
 
         if (toHit < parry) {
             Debug.Log("Attack Blocked");

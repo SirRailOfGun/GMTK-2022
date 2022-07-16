@@ -7,6 +7,9 @@ public class DiceRoller : MonoBehaviour
     public GameObject diePrefab;
     static public int RollDice(int numDice)
     {
+        //Uncomment this at your own risk!
+        Debug.Log("Rolling " + numDice + " Dice"); //Debug code
+
         int result = 0;
         bool negVal = false;
         if (numDice < 0)
@@ -16,11 +19,13 @@ public class DiceRoller : MonoBehaviour
         }
         for (int i = 0; i < numDice; i++)
         {
-            result += UnityEngine.Random.Range(1, 6);
+            result += Random.Range(1, 6);
             //GameObject currentDie = Instantiate(diePrefab);
             //currentDie.GetComponent<DiceRender>().diceValue = result;
             //currentDie.GetComponent<DiceRender>().renderPos = new Vector3(0,3,0);
         }
+
+        Debug.Log("Result is " + result); //Debug code
 
         if (negVal)
         {
