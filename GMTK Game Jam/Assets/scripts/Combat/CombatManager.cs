@@ -11,8 +11,8 @@ public class CombatManager : MonoBehaviour
 
     public bool playerTurn = true;
 
-    public EquipmentAndStats player;
-    public EquipmentAndStats enemy;
+    public GameObject player;
+    public GameObject enemy;
 
     public int currentLevel;
     private EnemyGenerator enemyGen;
@@ -43,10 +43,10 @@ public class CombatManager : MonoBehaviour
                 if (turnTimer < 0) {
                     turnTimer = 5;
                     if (playerTurn) {
-                        CombatRound(player, enemy);
+                        CombatRound(player.GetComponent<EquipmentAndStats>(), enemy.GetComponent<EquipmentAndStats>());
                     }
                     else {
-                        CombatRound(enemy, player);
+                        CombatRound(enemy.GetComponent<EquipmentAndStats>(), player.GetComponent<EquipmentAndStats>());
                     }
                     playerTurn = !playerTurn;
                 }
@@ -57,7 +57,8 @@ public class CombatManager : MonoBehaviour
     public void ResetEncounter() {
         playerTurn = true;
         turnTimer = roundTime;
-        enemyGen.GenerateEnemy(currentLevel);
+        enemy = enemyGen.GenerateEnemy(currentLevel);
+        enemy.transform.position = new Vector3(7,7,0);
         currentLevel++;
     }
 

@@ -17,7 +17,43 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: ItemDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: itemHD
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
       propertyPath: GlobalHD
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: isWeapon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: WeaponArmor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: WeaponParry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: WeaponToHit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: WeaponDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: WeaponHitLoc
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: WeaponCycling
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1850615869747957412, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
@@ -74,12 +110,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1850615869747957415, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
       propertyPath: m_Name
-      value: Inflated Ego Item
+      value: Inflated Ego Item Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1850615869957590637, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2f07d823c6c72ad4eb96bc612d89083a, type: 3}
+    - target: {fileID: 1850615869957590637, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1850615869957590638, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

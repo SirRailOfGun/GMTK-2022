@@ -65,8 +65,8 @@ public class DragController : MonoBehaviour
             {
                 int index = allLocations.IndexOf(validLocations[i]);
 
-                Debug.Log("new position : " + validLocations[i]);
-                Debug.Log("new position index : " + index);   //debug code
+                //Debug.Log("new position : " + validLocations[i]); //debug code
+                //Debug.Log("new position index : " + index);   //debug code
 
                 if (index > 0 && index < 25)
                 {
@@ -74,8 +74,8 @@ public class DragController : MonoBehaviour
                 }
                 index = allLocations.IndexOf(oldPosition);
 
-                Debug.Log("old position : " + oldPosition);
-                Debug.Log("old position index : " + index);   //debug code
+                //Debug.Log("old position : " + oldPosition);   //debug code
+                //Debug.Log("old position index : " + index);   //debug code
                 //if (index >= 0 && index < allLocations.Count)   //debug code
                 //{   //debug code
                 //    Debug.Log(allLocations[index]); //debug code

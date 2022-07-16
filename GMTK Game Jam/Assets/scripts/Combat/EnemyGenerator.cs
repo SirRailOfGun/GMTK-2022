@@ -16,7 +16,7 @@ public class EnemyGenerator : MonoBehaviour
     void Update()
     {}
 
-    public void GenerateEnemy(int level)
+    public GameObject GenerateEnemy(int level)
     {
         activeEnemy = Instantiate(prefabEnemy);
         EquipmentAndStats enemyItems = activeEnemy.GetComponent<EquipmentAndStats>();
@@ -41,5 +41,6 @@ public class EnemyGenerator : MonoBehaviour
             }
             itemSlot++;
         }
+        return activeEnemy;
     }
 }
