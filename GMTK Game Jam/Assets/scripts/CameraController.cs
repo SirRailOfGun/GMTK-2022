@@ -22,6 +22,9 @@ public class CameraController : MonoBehaviour
             case 1:
                 transform.position = new Vector3(0,-5,-10);
                 break;
+            case 2:
+                transform.position = new Vector3(11,-5,-10);
+                break;
         }
     }
 }

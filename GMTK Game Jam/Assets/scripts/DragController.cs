@@ -85,7 +85,16 @@ public class DragController : MonoBehaviour
                 {
                     player.equip(Instantiate(blankItem), index - 1);
                 }
-                if (oldPosition != new Vector3(-9.5f, -9.5f, 0))
+                bool savelocation = false;
+                foreach(var location in allLocations)
+                {
+                    if(oldPosition == location)
+                    {
+                        savelocation = true;
+                        break;
+                    }
+                }
+                if ((oldPosition != new Vector3(-9.5f, -9.5f, 0)) && savelocation)
                 {
                     validLocations.Add(oldPosition);
                 }
