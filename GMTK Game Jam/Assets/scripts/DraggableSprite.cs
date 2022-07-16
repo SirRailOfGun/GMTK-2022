@@ -34,7 +34,7 @@ public class DraggableSprite : MonoBehaviour
 
     void CleanUpTrash()
     {
-        if (lastPos == new Vector3(-9.5f,-9.5f,0))
+        if (lastPos == new Vector3(-9.5f,-9.5f,0) || lastPos.x > 10.5f)
         {
             Destroy(gameObject);
             //remove this object
