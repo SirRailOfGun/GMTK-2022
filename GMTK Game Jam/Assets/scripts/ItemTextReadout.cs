@@ -8,7 +8,8 @@ public class ItemTextReadout : MonoBehaviour
     public int gameState = 1; // 0 is combat, 1 is inventory, 2 is loot
     public GameObject selectedObject;
     public int whenToUse;
-
+    void NewGameState(int state)
+    { gameState = state; }
     // Start is called before the first frame update
     void Start()
     {

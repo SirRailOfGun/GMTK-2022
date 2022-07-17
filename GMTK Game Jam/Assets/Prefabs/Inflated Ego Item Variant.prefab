@@ -17,6 +17,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: name
+      value: Inflated Ego
+      objectReference: {fileID: 0}
+    - target: {fileID: -5820213059369735653, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
       propertyPath: ItemDR
       value: 1
       objectReference: {fileID: 0}

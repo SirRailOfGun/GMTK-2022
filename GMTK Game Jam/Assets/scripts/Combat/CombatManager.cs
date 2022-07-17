@@ -167,10 +167,18 @@ public class CombatManager : MonoBehaviour
                     "\nLooting the body" +
                     "\nRolling " + lootDice +"d6 for luck : " + loot + 
                     "\nLooted " + lootedItems + " items from the enemy";
-
+                BroadcastMessage("useNow");
             }
         }
 
         combatLog.updateLog(readoutText);
+    }
+
+    void NewGameState(int state)
+    { 
+        if(state == 0)
+        {
+            paused = false;
+        }
     }
 }

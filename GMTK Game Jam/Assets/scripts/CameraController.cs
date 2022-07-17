@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public int gameState = 1; // 0 is combat, 1 is inventory, 2 is loot
+    void NewGameState(int state)
+    { gameState = state; }
     // Start is called before the first frame update
     void Start()
     {

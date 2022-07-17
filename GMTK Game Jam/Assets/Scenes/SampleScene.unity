@@ -879,17 +879,21 @@ PrefabInstance:
       propertyPath: WeaponCycling
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1850615869747957412, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
+      propertyPath: lastPos.x
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 1850615869747957413, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1850615869747957413, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.190475
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 1850615869747957413, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.224372
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1850615869747957413, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6443,7 +6447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5a25822f570b7458d12a906a60047e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 0
+  gameState: 1
 --- !u!1 &545256210
 GameObject:
   m_ObjectHideFlags: 0
@@ -10102,7 +10106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a57331423d6e684bac2452e1036abc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 0
+  gameState: 1
   selectedObject: {fileID: 0}
   whenToUse: 2
 --- !u!114 &819688151
@@ -10587,6 +10591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 879496945}
+  - component: {fileID: 879496946}
   m_Layer: 0
   m_Name: DoneBox (2)
   m_TagString: Untagged
@@ -10611,6 +10616,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &879496946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879496944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e023b772a8d3f4487d90533ceac928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newState: 1
+  canBeUsed: 0
+  ignoreAbove: 1
 --- !u!1 &882243543
 GameObject:
   m_ObjectHideFlags: 0
@@ -16128,6 +16148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1393766850}
+  - component: {fileID: 1393766851}
   m_Layer: 0
   m_Name: DoneBox (1)
   m_TagString: Untagged
@@ -16152,6 +16173,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1393766851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393766849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e023b772a8d3f4487d90533ceac928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newState: 0
+  canBeUsed: 0
+  ignoreAbove: 1
 --- !u!1001 &1406881110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18985,6 +19021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638672125}
+  - component: {fileID: 1638672126}
   m_Layer: 0
   m_Name: DoneBox
   m_TagString: Untagged
@@ -19009,6 +19046,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1638672126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638672124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e023b772a8d3f4487d90533ceac928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newState: 2
+  canBeUsed: 0
+  ignoreAbove: 0
 --- !u!1 &1655563028
 GameObject:
   m_ObjectHideFlags: 0
