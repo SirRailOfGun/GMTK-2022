@@ -123,6 +123,15 @@ public class EquipmentAndStats : MonoBehaviour
         }
         return count;
     }
+    public int GetLuckDice()
+    {
+        int count = 0;
+        foreach (EquipSlot slot in equipment)
+        {
+            count += slot.equippedItem.GetComponent<EquipmentInfo>().luck;
+        }
+        return count;
+    }
 
     public int GetSlotDRDice(int slot) {
         int count = GetGlobalDRDice();
@@ -160,7 +169,7 @@ public class EquipmentAndStats : MonoBehaviour
         slot = slot % equipment.Length;
         if (slot >= 0 && slot < equipment.Length) {
             equipment[slot].health -= (int)(damage * damageMod);
-            if(equipment[slot].health < 0) {
+            if(equipment[slot].health <= 0) {
                 Destroy(gameObject);
             }
         }

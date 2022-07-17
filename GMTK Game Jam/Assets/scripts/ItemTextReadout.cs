@@ -35,7 +35,7 @@ public class ItemTextReadout : MonoBehaviour
         {
             EquipmentInfo equipStats = selectedObject.GetComponent<EquipmentInfo>();
             string readoutText = "";
-            readoutText += equipStats.Name;
+            readoutText += equipStats.name;
             readoutText += "\n_________\nWhile Active\n----------------\n";
             readoutText += "Weapon Progression\n" + equipStats.WeaponCycling + "d6\n";
             readoutText += "Accuracy\n" + equipStats.WeaponToHit + "d6\n";

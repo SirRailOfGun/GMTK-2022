@@ -14,6 +14,7 @@ public class CombatManager : MonoBehaviour
     public GameObject player;
     public GameObject enemy;
     public CombatTextReadout combatLog;
+    public ItemSprites spriteGen;
 
     public int currentLevel;
     private EnemyGenerator enemyGen;
@@ -132,7 +133,41 @@ public class CombatManager : MonoBehaviour
                 "\n" + dName + "'s " + defender.equipment[hitLocation].Name + " has " + defender.equipment[hitLocation].health + " HP remaining";
             if (defender.equipment[hitLocation].health <= 0)
             {
-                readoutText += "\n\n" + dName + " is dead!";
+                int lootDice = attacker.GetLuckDice();
+                int loot = DiceRoller.RollDice(lootDice);
+                int lootedItems = 0;
+                for (int i = 0; i < 24; i++)
+                {
+                    if (defender.equipment[i].equippedItem.name == "" || i >= loot)
+                    {
+                        Destroy(defender.equipment[i].equippedItem.transform.gameObject);
+                    }
+                    else
+                    {
+                        GameObject lootItem = defender.equipment[i].equippedItem.transform.gameObject;
+                        EquipmentInfo lootInfo = lootItem.GetComponent<EquipmentInfo>();
+                        Vector3 newPos = new Vector3(17.5f, -2.5f, 0);
+                        newPos += new Vector3((i % 4) * -1,Mathf.Floor(i / 4), 0);
+                        lootItem.transform.position = newPos;
+                        lootItem.GetComponent<DraggableSprite>().lastPos = newPos;
+                        SpriteRenderer sprite = lootItem.GetComponentInChildren<SpriteRenderer>();
+                        if (lootInfo.isWeapon)
+                        {
+                            sprite.sprite = spriteGen.GetRandomWeaponSprite();
+                        }
+                        else
+                        {
+                            sprite.sprite = spriteGen.GetRandomWeaponSprite();
+                        }
+
+                        lootedItems++;
+                    }
+                }
+                readoutText += "\n\n" + dName + " is dead!" +
+                    "\nLooting the body" +
+                    "\nRolling " + lootDice +"d6 for luck : " + loot + 
+                    "\nLooted " + lootedItems + " items from the enemy";
+
             }
         }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class EquipmentInfo : MonoBehaviour
 {
-    public string Name;
+    public string name = "";
     public bool isWeapon;       //is this item supposed to be in the weapon list
 
     //Weapon stats are only applied if the item is the active weapon, ItemDR is applied if it is equipped to the hit location
@@ -36,6 +36,11 @@ public class EquipmentInfo : MonoBehaviour
         level = Mathf.Max(level, 1);
 
         bool isWeapon = Random.value > .5f;
+
+        for(int i=0; i<3;i++)
+        {
+            name += "word ";
+        }
 
         if (isWeapon)
         {
