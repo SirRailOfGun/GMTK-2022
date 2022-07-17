@@ -174,7 +174,7 @@ public class CombatManager : MonoBehaviour
         combatLog.updateLog(readoutText);
     }
 
-    void NewGameState(int state)
+    public void NewGameState(int state)
     { 
         if(state == 0)
         {

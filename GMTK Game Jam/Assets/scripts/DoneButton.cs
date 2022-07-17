@@ -7,6 +7,7 @@ public class DoneButton : MonoBehaviour
     public int newState = 0;
     public bool canBeUsed = false;
     public bool ignoreAbove = true;
+    public List<GameObject> updateme;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +37,12 @@ public class DoneButton : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && inRange && (canBeUsed || ignoreAbove))
         {
-            gameObject.transform.parent.BroadcastMessage("newGameState", newState);
-            if(newState == 0)
+            foreach(GameObject go in updateme)
             {
-                gameObject.transform.parent.BroadcastMessage("cleanUpTrash");
+                go.SendMessage("newGameState", newState);
+                canBeUsed = false;
             }
-            canBeUsed = false;
+            
         }
     }
 
