@@ -2335,7 +2335,7 @@ MonoBehaviour:
   playerTurn: 1
   player: {fileID: 1817150019}
   enemy: {fileID: 0}
-  combatLog: {fileID: 0}
+  combatLog: {fileID: 1304221010}
   currentLevel: 0
 --- !u!4 &238018871
 Transform:
@@ -3398,12 +3398,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304176507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.398595, y: 5.860797, z: 0.29434744}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &305038437
 GameObject:
@@ -5732,7 +5732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5a25822f570b7458d12a906a60047e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 1
+  gameState: 0
 --- !u!1 &545256210
 GameObject:
   m_ObjectHideFlags: 0
@@ -11352,7 +11352,7 @@ Transform:
   m_Children:
   - {fileID: 1234284258}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063622164
 GameObject:
@@ -13955,7 +13955,7 @@ Transform:
   m_Children:
   - {fileID: 1304221007}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304221006
 GameObject:
@@ -13968,6 +13968,7 @@ GameObject:
   - component: {fileID: 1304221007}
   - component: {fileID: 1304221009}
   - component: {fileID: 1304221008}
+  - component: {fileID: 1304221010}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -14015,13 +14016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CHARACTER Attacks\n__________________________________________\nCycling
-    Weapon with N dice : X\nCHARACTER draws ITEM\n\nAttacking with N critical dice
-    : X(+1) \nif > 23 - OVERCRIT\nAttack is aimed at the Left Arm (add ! for each
-    overcrit)\n\nAttack Roll with N dice : X\nopponent parries with N dice : X\nParried
-    / Hits True\n\nAttacking with N damage dice : X\nDefending with N damage reduction
-    dice : X\nPierces Armor / Has no effect\n\nAttack dealt N damage to LOCATION\nLOCATION
-    has N HP remaining\n\nCHARACTER is dead!\n\n"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14135,6 +14130,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1304221010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304221006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f38ad3e732614447bb32e7cad54138b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1324616545
 GameObject:
   m_ObjectHideFlags: 0
@@ -18365,6 +18372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb7792c542ee64439861f94af27975e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: Player
   currentWeapon: 0
   equipment:
   - Name: Left Arm
@@ -20777,7 +20785,7 @@ Transform:
   m_Children:
   - {fileID: 819688149}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2030341694
 GameObject:

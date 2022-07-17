@@ -13,7 +13,7 @@ public class CombatManager : MonoBehaviour
 
     public GameObject player;
     public GameObject enemy;
-    public GameObject combatLog;
+    public CombatTextReadout combatLog;
 
     public int currentLevel;
     private EnemyGenerator enemyGen;
@@ -68,33 +68,74 @@ public class CombatManager : MonoBehaviour
 
     public void CombatRound(EquipmentAndStats attacker, EquipmentAndStats defender) {
         // Roll Weapon
-        int cyleRoll = DiceRoller.RollDice(attacker.GetCyclingDice());
-        attacker.AdvanceWeapon(cyleRoll);
-        
+        int cycleDice = attacker.GetCyclingDice();
+        int cycleRoll = DiceRoller.RollDice(cycleDice);
+        attacker.AdvanceWeapon(cycleRoll);
+
         //Debug.Log("attacker dice\ncycle " + attacker.GetCyclingDice() + "\nhit loc " + attacker.GetHitLocDice() + "\nto hit " + attacker.GetToHitDice() + "\ndamage " + attacker.GetDamageDice());
-        
+
         // Roll for hit location
-        int hitLocation = DiceRoller.RollDice(attacker.GetHitLocDice());
+        int critDice = attacker.GetHitLocDice();
+        int hitLocation = DiceRoller.RollDice(critDice);
         // Roll for to hit
-        int toHit = DiceRoller.RollDice(attacker.GetToHitDice());
+        int hitDice = attacker.GetToHitDice();
+        int toHit = DiceRoller.RollDice(hitDice);
         // Roll for parry
-        int parry = DiceRoller.RollDice(defender.GetParryDice());
+        int parryDice = defender.GetParryDice();
+        int parry = DiceRoller.RollDice(parryDice);
         // Roll for damage
-        int damage = DiceRoller.RollDice(attacker.GetDamageDice());
+        int damageDice = attacker.GetDamageDice();
+        int damage = DiceRoller.RollDice(damageDice);
         // Roll for Damage
-        int dr = DiceRoller.RollDice(defender.GetSlotDRDice(hitLocation));
-        
+        int armorDice = defender.GetSlotDRDice(hitLocation);
+        int dr = DiceRoller.RollDice(armorDice);
+
         //Debug.Log("cycle by " + cyleRoll + "\nhit location " + hitLocation + "\nto hit roll " + toHit + "\nparry roll " + parry+ "\ndamage roll " + damage+ "\ndamage reduction " + dr);
 
+        string aName = attacker.characterName;
+        string dName = defender.characterName;
+        string readoutText = aName + " Attacks " + dName + "\n__________________________________________" +
+            "\nCycling Weapon with " + cycleDice + " dice : " + cycleRoll +
+            "\n" + aName + " draws " + attacker.equipment[attacker.currentWeapon].equippedItem.name +
+            "\n\nAttacking with " + critDice + " critical dice:" + (hitLocation + 1);
+        string extraExc = "";
+        if (hitLocation > 23)
+        {
+            for (int i = 0; i < hitLocation / 24; i++)
+            {
+                extraExc += "!";
+            }
+            readoutText += "\nOverctitical hit";
+        }
+        readoutText += "\nAttack is aimed at the " + defender.equipment[hitLocation].Name + extraExc +
+            "\n\nAttack Roll with " + hitDice + " dice: " + toHit +
+            "\nopponent parries with " + parryDice + " dice : " + parry;
         if (toHit < parry) {
-            Debug.Log("Attack Blocked");
+            //Debug.Log("Attack Blocked");
+            readoutText += "\nAttack is parried";
         }
         else if (damage <= dr) {
             Debug.Log("Dealt No Damage");
+            readoutText += "\nAttack hits True" +
+                "\n\nAttacking with " + damageDice + " damage dice : " + damage +
+                "\nDefending with " + armorDice + " damage reduction dice: " + dr +
+                "\nArmor deflects the blow";
         }
         else {
             Debug.Log("Hit for: " + (damage - dr));
             defender.TakeDamage(damage - dr, hitLocation);
+            readoutText += "\nAttack hits True" +
+                "\n\nAttacking with " + damageDice + " damage dice : " + damage +
+                "\nDefending with " + armorDice + " damage reduction dice: " + dr;
+            readoutText += "\nPierces Armor" +
+                "\n\nAttack dealt " + (damage - dr) + " damage to the " + defender.equipment[hitLocation].Name +
+                "\n" + dName + "'s " + defender.equipment[hitLocation].Name + " has " + defender.equipment[hitLocation].health + " HP remaining";
+            if (defender.equipment[hitLocation].health <= 0)
+            {
+                readoutText += "\n\n" + dName + " is dead!";
+            }
         }
+
+        combatLog.updateLog(readoutText);
     }
 }

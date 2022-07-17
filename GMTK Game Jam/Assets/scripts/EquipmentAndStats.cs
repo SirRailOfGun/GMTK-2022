@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EquipmentAndStats : MonoBehaviour
 {
+    public string characterName = "";
     public int currentWeapon;
     public EquipSlot[] equipment = new EquipSlot[24];
     public HPBarManager[] healthBars = new HPBarManager[24];

@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb7792c542ee64439861f94af27975e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: Enemy
   currentWeapon: 0
   equipment:
   - Name: Left Arm
@@ -375,6 +376,31 @@ MonoBehaviour:
     equippedItem: {fileID: 0}
     health: 0
     BonusHD: 0
+  healthBars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   blankItem: {fileID: 1850615869747957415, guid: 89397ae66b800ea49a690e36635ba577, type: 3}
 --- !u!1001 &278161137002305309
 PrefabInstance:
