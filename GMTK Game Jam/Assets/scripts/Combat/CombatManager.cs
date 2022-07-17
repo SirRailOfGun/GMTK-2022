@@ -108,7 +108,7 @@ public class CombatManager : MonoBehaviour
             }
             readoutText += "\nOverctitical hit";
         }
-        readoutText += "\nAttack is aimed at the " + defender.equipment[hitLocation].Name + extraExc +
+        readoutText += "\nAttack is aimed at the " + defender.equipment[hitLocation % 24].Name + extraExc +
             "\n\nAttack Roll with " + hitDice + " dice: " + toHit +
             "\nopponent parries with " + parryDice + " dice : " + parry;
         if (toHit < parry) {
@@ -129,9 +129,9 @@ public class CombatManager : MonoBehaviour
                 "\n\nAttacking with " + damageDice + " damage dice : " + damage +
                 "\nDefending with " + armorDice + " damage reduction dice: " + dr;
             readoutText += "\nPierces Armor" +
-                "\n\nAttack dealt " + (damage - dr) + " damage to the " + defender.equipment[hitLocation].Name +
-                "\n" + dName + "'s " + defender.equipment[hitLocation].Name + " has " + defender.equipment[hitLocation].health + " HP remaining";
-            if (defender.equipment[hitLocation].health <= 0)
+                "\n\nAttack dealt " + (damage - dr) + " damage to the " + defender.equipment[hitLocation % 24].Name +
+                "\n" + dName + "'s " + defender.equipment[hitLocation % 24].Name + " has " + defender.equipment[hitLocation % 24].health + " HP remaining";
+            if (defender.equipment[hitLocation % 24].health <= 0)
             {
                 int lootDice = attacker.GetLuckDice();
                 int loot = DiceRoller.RollDice(lootDice);
@@ -140,14 +140,14 @@ public class CombatManager : MonoBehaviour
                 {
                     if (defender.equipment[i].equippedItem.name == "" || i >= loot)
                     {
-                        Destroy(defender.equipment[i].equippedItem.transform.gameObject);
+                        break;
                     }
                     else
                     {
                         GameObject lootItem = defender.equipment[i].equippedItem.transform.gameObject;
                         EquipmentInfo lootInfo = lootItem.GetComponent<EquipmentInfo>();
                         Vector3 newPos = new Vector3(17.5f, -2.5f, 0);
-                        newPos += new Vector3((i % 4) * -1,Mathf.Floor(i / 4), 0);
+                        newPos += new Vector3((i % 4),Mathf.Floor(i / 4) * -1, 0);
                         lootItem.transform.position = newPos;
                         lootItem.GetComponent<DraggableSprite>().lastPos = newPos;
                         SpriteRenderer sprite = lootItem.GetComponentInChildren<SpriteRenderer>();
