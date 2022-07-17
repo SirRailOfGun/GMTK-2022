@@ -69,7 +69,9 @@ public class CombatManager : MonoBehaviour
         // Roll Weapon
         int cyleRoll = DiceRoller.RollDice(attacker.GetCyclingDice());
         attacker.AdvanceWeapon(cyleRoll);
-        Debug.Log("attacker dice\ncycle " + attacker.GetCyclingDice() + "\nhit loc " + attacker.GetHitLocDice() + "\nto hit " + attacker.GetToHitDice() + "\ndamage " + attacker.GetDamageDice());
+        
+        //Debug.Log("attacker dice\ncycle " + attacker.GetCyclingDice() + "\nhit loc " + attacker.GetHitLocDice() + "\nto hit " + attacker.GetToHitDice() + "\ndamage " + attacker.GetDamageDice());
+        
         // Roll for hit location
         int hitLocation = DiceRoller.RollDice(attacker.GetHitLocDice());
         // Roll for to hit
@@ -80,7 +82,8 @@ public class CombatManager : MonoBehaviour
         int damage = DiceRoller.RollDice(attacker.GetDamageDice());
         // Roll for Damage
         int dr = DiceRoller.RollDice(defender.GetSlotDRDice(hitLocation));
-        Debug.Log("cycle by " + cyleRoll + "\nhit location " + hitLocation + "\nto hit roll " + toHit + "\nparry roll " + parry+ "\ndamage roll " + damage+ "\ndamage reduction " + dr);
+        
+        //Debug.Log("cycle by " + cyleRoll + "\nhit location " + hitLocation + "\nto hit roll " + toHit + "\nparry roll " + parry+ "\ndamage roll " + damage+ "\ndamage reduction " + dr);
 
         if (toHit < parry) {
             Debug.Log("Attack Blocked");

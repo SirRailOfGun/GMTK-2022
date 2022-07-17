@@ -16,7 +16,7 @@ public class DragController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(float x = 1f; x < 10.5f; x++)
+        for(float x = 1.4f; x < 10.5f; x++)
         {
             for(float y = -.5f; y > -10; y--)
             {

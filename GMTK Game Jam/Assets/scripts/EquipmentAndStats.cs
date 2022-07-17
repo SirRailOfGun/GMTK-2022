@@ -6,6 +6,7 @@ public class EquipmentAndStats : MonoBehaviour
 {
     public int currentWeapon;
     public EquipSlot[] equipment = new EquipSlot[24];
+    public HPBarManager[] healthBars = new HPBarManager[24];
     public GameObject blankItem;
 
     // Start is called before the first frame update
@@ -20,12 +21,17 @@ public class EquipmentAndStats : MonoBehaviour
                 //equipment[i].equippedItem.SendMessage("GenerateEquipment", defaultTier);
             }
         }
+        healthBars = GetComponentsInChildren<HPBarManager>();
+        InstantiateHealth();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        for (int i = 0; i < equipment.Length; i++)
+        {
+            healthBars[i].currentValue = equipment[i].health;
+        }
     }
 
     void InstantiateHealth()
@@ -37,7 +43,9 @@ public class EquipmentAndStats : MonoBehaviour
         }
         for (int i = 0; i < equipment.Length; i++)
         {
-            equipment[i].health = DiceRoller.RollDice(GlobalHitDice + equipment[i].BonusHD + equipment[i].equippedItem.GetComponent<EquipmentInfo>().itemHD);
+            int maxHP = DiceRoller.RollDice(GlobalHitDice + equipment[i].BonusHD + equipment[i].equippedItem.GetComponent<EquipmentInfo>().itemHD);
+            equipment[i].health = maxHP;
+            healthBars[i].maxValue = maxHP;
         }
     }
 
@@ -131,7 +139,7 @@ public class EquipmentAndStats : MonoBehaviour
         }
         count = count % weapons;
         if(!equipment[currentWeapon].equippedItem.GetComponent<EquipmentInfo>().isWeapon) {
-            count = Mathf.Min(1,count);
+            count = Mathf.Max(1,count);
         }
         while(count > 0) {
             currentWeapon = (currentWeapon + 1) % equipment.Length;

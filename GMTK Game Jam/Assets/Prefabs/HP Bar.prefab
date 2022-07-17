@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2081702530855314329}
   - component: {fileID: 2081702530855314328}
   m_Layer: 0
-  m_Name: Hull Bar EXAMPLE
+  m_Name: Hull Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081702531555629015}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00999999}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -362,6 +362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081702532076548818}
+  - component: {fileID: 3973407156708349632}
   m_Layer: 0
   m_Name: HP Bar
   m_TagString: Untagged
@@ -386,8 +387,28 @@ Transform:
   - {fileID: 2081702531555629010}
   - {fileID: 2081702530781619133}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3973407156708349632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081702532076548817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738c7bc13248b1042b71b7af9d877ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxValue: 0
+  currentValue: 0
+  barObject: {fileID: 2081702530855314335}
+  valueReadout: {fileID: 2081702531555629015}
+  value: {fileID: 0}
+  maxScale: 2
+  minScale: 0.01
+  yScale: 0.4
 --- !u!1 &3577149960123670162
 GameObject:
   m_ObjectHideFlags: 0
