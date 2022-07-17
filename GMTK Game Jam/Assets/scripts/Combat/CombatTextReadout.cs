@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ItemTextReadout : MonoBehaviour
+public class CombatTextReadout : MonoBehaviour
 {
     public int gameState = 1; // 0 is combat, 1 is inventory, 2 is loot
     public GameObject selectedObject;
@@ -18,19 +18,6 @@ public class ItemTextReadout : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (gameState == whenToUse)
-        {
-            Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
-            if (targetObject)
-            {
-                selectedObject = targetObject.transform.gameObject;
-            }
-            else
-            {
-                selectedObject = null;
-            }
-        }
         if (selectedObject)
         {
             EquipmentInfo equipStats = selectedObject.GetComponent<EquipmentInfo>();

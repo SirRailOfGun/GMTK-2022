@@ -150,9 +150,15 @@ public class EquipmentAndStats : MonoBehaviour
     }
 
     public void TakeDamage(int damage, int slot) {
+        float damageMod = 1;
+        int overCrit = slot / equipment.Length;
+        if (overCrit > 1)
+        {
+            damageMod += (overCrit * 0.2f);
+        }
         slot = slot % equipment.Length;
         if (slot >= 0 && slot < equipment.Length) {
-            equipment[slot].health -= damage;
+            equipment[slot].health -= (int)(damage * damageMod);
             if(equipment[slot].health < 0) {
                 Destroy(gameObject);
             }

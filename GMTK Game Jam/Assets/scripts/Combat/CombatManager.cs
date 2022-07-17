@@ -6,13 +6,14 @@ public class CombatManager : MonoBehaviour
 {
     public bool paused = false;
 
-    public float roundTime = 2;
+    public float roundTime = 10;
     public float turnTimer;
 
     public bool playerTurn = true;
 
     public GameObject player;
     public GameObject enemy;
+    public GameObject combatLog;
 
     public int currentLevel;
     private EnemyGenerator enemyGen;
@@ -41,7 +42,7 @@ public class CombatManager : MonoBehaviour
             else {
                 turnTimer -= Time.deltaTime;
                 if (turnTimer < 0) {
-                    turnTimer = 5;
+                    turnTimer = roundTime;
                     if (playerTurn) {
                         Debug.Log("player attacks");
                         CombatRound(player.GetComponent<EquipmentAndStats>(), enemy.GetComponent<EquipmentAndStats>());
